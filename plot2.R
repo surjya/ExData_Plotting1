@@ -1,0 +1,6 @@
+data<-read.table("../exdata-data-household_power_consumption/household_power_consumption.txt",sep=";",header=TRUE,na.strings = "?")
+data<-subset(data,data$Date == "1/2/2007" | data$Date == "2/2/2007")
+x<-strptime(paste(data$Date,data$Time),"%d/%m/%Y %H:%M:%S")
+plot(x,data$Global_active_power,type="l",xlab="",ylab="Global Active Power (kilowatts)")
+dev.copy(png, file = "plot2.png")
+dev.off()

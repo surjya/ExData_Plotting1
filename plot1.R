@@ -1,0 +1,5 @@
+data<-read.table("../exdata-data-household_power_consumption/household_power_consumption.txt",sep=";",header=TRUE,na.strings = "?")
+data<-subset(data,data$Date == "1/2/2007" | data$Date == "2/2/2007")
+hist(data$Global_active_power,col="red",xlab="Global Active Power (kilowatts)",main="Global Active Power")
+dev.copy(png, file = "plot1.png")
+dev.off()
